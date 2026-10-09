@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow" data-demo="remove-at-launch">
+<title>Transaction Coordinator Serving All of California | Statewide Virtual TC | My TC Club</title>
+<meta name="description" content="Virtual transaction coordinator for real estate agents across California: Fresno, Bakersfield, Los Angeles, San Diego, Sacramento, the Bay Area, and every county in between.">
+<link rel="canonical" href="https://www.mytcclub.com/california.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#51706a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="My TC Club">
+<meta property="og:title" content="Transaction Coordinator Serving All of California | Statewide Virtual TC | My TC Club">
+<meta property="og:description" content="Virtual transaction coordinator for real estate agents across California: Fresno, Bakersfield, Los Angeles, San Diego, Sacramento, the Bay Area, and every county in between.">
+<meta property="og:url" content="https://www.mytcclub.com/california.html">
+<meta property="og:image" content="https://www.mytcclub.com/assets/og-image.jpg">
+<meta property="og:image:alt" content="My TC Club, transaction coordination for California real estate agents">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="geo.region" content="US-CA">
+<meta name="geo.placename" content="Visalia, California">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=Courier+Prime:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.mapgrid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,64px);align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:minmax(0,1fr)}}
+#map{width:100%;max-width:440px;aspect-ratio:1/1.08;margin:0 auto;display:block}
+#map path{stroke:#fff;stroke-width:.7;cursor:pointer;transition:opacity .15s}
+#map path.dim{opacity:.28}
+.tip{min-height:1.6em;font-weight:700;color:var(--deep);text-align:center;margin-top:8px}
+.rlist{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:620px){.rlist{grid-template-columns:1fr}}
+.r{display:grid;grid-template-columns:14px 1fr;gap:10px;align-items:start;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:var(--r);cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.r:hover,.r.on{border-color:var(--slate)}
+.r i{width:14px;height:14px;border-radius:3px;margin-top:4px}
+.r b{display:block;color:var(--deep);font-size:.95rem;line-height:1.3}
+.r span{font-size:.8rem;line-height:1.4;color:var(--muted);display:block;margin-top:2px}
+.r em{font-style:normal;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin-left:8px}
+@media (max-width:900px){.mapgrid>div:first-child{order:2}}
+.cities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 28px;margin:18px 0 12px}
+.cities h3{font-size:.95rem;margin:0 0 2px}
+.cities p{font-size:.88rem;color:var(--muted);margin:0}
+@media (max-width:860px){.cities{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.cities{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Virtual real estate transaction coordination", "provider": {"@id": "https://www.mytcclub.com/#business"}, "areaServed": {"@type": "State", "name": "California"}}</script>
+<script type="application/ld+json">{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mytcclub.com/"}, {"@type": "ListItem", "position": 2, "name": "Transaction Coordinator Serving All of California", "item": "https://www.mytcclub.com/california.html"}], "@context": "https://schema.org"}</script>
+</head>
+<body>
+
+<div class="phero"><div class="wrap">
+  <span class="eyebrow">Where I work</span>
+  <h1>All 58 California counties. One coordinator.</h1>
+  <p class="lead">I'm based in Visalia and work entirely online, so a file in San Diego runs on the same system as one down the street.</p>
+</div></div>
+
+<section style="padding-top:32px">
+  <div class="wrap mapgrid">
+    <div>
+      <svg id="map" role="img" aria-label="Map of California counties by region"></svg>
+      <div class="tip" id="tip">Tap a county or a region</div>
+    </div>
+    <div class="rlist" id="rlist"></div>
+  </div>
+</section>
+
+
+<section class="s-white" style="padding-top:36px"><div class="wrap">
+  <span class="eyebrow">Cities we serve</span>
+  <h2 style="font-size:clamp(1.5rem,2.6vw,2rem)">A transaction coordinator for your California city.</h2>
+  <p class="muted" style="max-width:44em">Virtual transaction coordination and real estate admin support for agents in every county, including:</p>
+  <div class="cities"><div><h3>Central Valley</h3><p>Fresno, Bakersfield, Visalia, Clovis, Tulare, Hanford, Porterville, Delano, Madera, Merced, Modesto, Turlock, Stockton, Lodi</p></div><div><h3>Los Angeles and Orange</h3><p>Los Angeles, Long Beach, Glendale, Pasadena, Santa Clarita, Lancaster, Palmdale, Torrance, Anaheim, Santa Ana, Irvine, Huntington Beach</p></div><div><h3>San Diego</h3><p>San Diego, Chula Vista, Oceanside, Escondido, Carlsbad, El Cajon</p></div><div><h3>Inland Empire and desert</h3><p>Riverside, San Bernardino, Fontana, Moreno Valley, Corona, Ontario, Temecula, Murrieta, Palm Springs, Indio, El Centro</p></div><div><h3>Bay Area</h3><p>San Francisco, San Jose, Oakland, Fremont, Hayward, Sunnyvale, Concord, Santa Rosa, Vallejo, Napa, San Mateo</p></div><div><h3>Sacramento region</h3><p>Sacramento, Elk Grove, Roseville, Folsom, Rancho Cordova, Davis, Woodland, Yuba City, Grass Valley</p></div><div><h3>Central Coast</h3><p>Salinas, Monterey, Santa Cruz, San Luis Obispo, Paso Robles, Santa Maria, Santa Barbara, Ventura, Oxnard, Thousand Oaks</p></div><div><h3>Gold Country and Eastern Sierra</h3><p>Jackson, Sonora, Angels Camp, Mariposa, Mammoth Lakes, Bishop</p></div><div><h3>Northern California</h3><p>Redding, Chico, Oroville, Red Bluff, Eureka, Ukiah, Crescent City, Susanville, Yreka</p></div></div>
+  <p class="hint">Don’t see your city? If it’s in California, I cover it. <a class="js-sms">Text me</a>.</p>
+</div></section>
+<section >
+  <div class="wrap split">
+    <div><span class="eyebrow">Why location barely matters</span><h2>Different county. Same system.</h2></div>
+    <div>
+      <p class="lead" style="color:var(--ink)">California agents draw from the same C.A.R. forms library, and every deadline I track comes from the signed contract, not a zip code.</p>
+      <p class="muted">What changes from place to place: the escrow companies, some city and county requirements, and which disclosures apply. I follow your contract and your local requirements, and flag anything that looks unusual for your area.</p>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="assets/config.js"></script><script src="assets/chrome.js"></script>
+<script>
+(function(){
+  var R = [
+    { n:'Central Valley', home:true, c:'#2b3a37', k:['Tulare','Fresno','Kings','Kern','Madera','Merced','Stanislaus','San Joaquin'] },
+    { n:'Los Angeles and Orange', c:'#51706a', k:['Los Angeles','Orange'] },
+    { n:'San Diego', c:'#88afaa', k:['San Diego'] },
+    { n:'Inland Empire and desert', c:'#c6b9ad', k:['Riverside','San Bernardino','Imperial'] },
+    { n:'Bay Area', c:'#6f918a', k:['Alameda','Contra Costa','Marin','Napa','San Francisco','San Mateo','Santa Clara','Solano','Sonoma'] },
+    { n:'Sacramento region', c:'#a6c4c1', k:['Sacramento','Placer','El Dorado','Yolo','Sutter','Yuba','Nevada'] },
+    { n:'Central Coast', c:'#b5d2d2', k:['Monterey','San Benito','San Luis Obispo','Santa Barbara','Santa Cruz','Ventura'] },
+    { n:'Gold Country and Eastern Sierra', c:'#ddd2c7', k:['Amador','Calaveras','Tuolumne','Mariposa','Alpine','Mono','Inyo'] },
+    { n:'Northern California', c:'#d2e2df', k:['Butte','Colusa','Del Norte','Glenn','Humboldt','Lake','Lassen','Mendocino','Modoc','Plumas','Shasta','Sierra','Siskiyou','Tehama','Trinity'] }
+  ];
+  var byCounty = {}; R.forEach(function(r,i){ r.k.forEach(function(c){ byCounty[c] = i; }); });
+  var list = document.getElementById('rlist'), tip = document.getElementById('tip');
+  list.innerHTML = R.map(function(r,i){ return '<button class="r" data-i="'+i+'"><i style="background:'+r.c+'"></i><div><b>'+r.n+(r.home?'<em>Home base</em>':'')+'</b><span>'+r.k.join(', ')+'</span></div></button>'; }).join('');
+  var active = null, paths;
+  function pick(i){
+    active = (active === i) ? null : i;
+    list.querySelectorAll('.r').forEach(function(b){ b.classList.toggle('on', +b.dataset.i === active); });
+    if(paths) paths.forEach(function(p){ p.el.classList.toggle('dim', active !== null && p.r !== active); });
+    tip.textContent = active === null ? 'Tap a county or a region' : R[active].n + ': ' + R[active].k.length + ' count' + (R[active].k.length>1?'ies':'y');
+  }
+  list.querySelectorAll('.r').forEach(function(b){ b.onclick = function(){ pick(+b.dataset.i); }; });
+
+  fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json').then(function(r){ return r.json(); }).then(function(us){
+    var all = topojson.feature(us, us.objects.counties).features.filter(function(f){ return String(f.id).slice(0,2) === '06'; });
+    var fc = { type:'FeatureCollection', features: all };
+    var W = 520, H = 560, svg = document.getElementById('map');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    var proj = d3.geoConicEqualArea().parallels([34,40.5]).rotate([120,0]).fitSize([W,H], fc);
+    var path = d3.geoPath(proj);
+    paths = all.map(function(f){
+      var name = f.properties.name, ri = byCounty[name];
+      var el = document.createElementNS('http://www.w3.org/2000/svg','path');
+      el.setAttribute('d', path(f));
+      el.setAttribute('fill', ri === undefined ? '#e5ebe9' : R[ri].c);
+      var t = document.createElementNS('http://www.w3.org/2000/svg','title'); t.textContent = name + ' County'; el.appendChild(t);
+      el.addEventListener('mouseenter', function(){ tip.textContent = name + ' County · ' + (ri===undefined?'':R[ri].n); });
+      el.addEventListener('click', function(){ if(ri!==undefined) pick(ri); });
+      svg.appendChild(el);
+      return { el:el, r:ri };
+    });
+  }).catch(function(){ tip.textContent = 'Map unavailable offline. Every region is listed here.'; });
+})();
+</script>
+</body>
+</html>

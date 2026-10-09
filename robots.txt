@@ -1,0 +1,3 @@
+# DEMO: blocks search engines. At launch replace with robots.launch.txt
+User-agent: *
+Disallow: /

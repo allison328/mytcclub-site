@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex,nofollow">
+<title>Your Escrow · My TC Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=Courier+Prime:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.mini{background:#fff;border-bottom:1px solid var(--line)}
+.mini .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.sh{display:grid;grid-template-columns:2fr 1fr}
+.sh .x{background:var(--slate);color:#fff;padding:clamp(32px,5vw,56px) clamp(20px,4vw,48px)}
+.sh .x .eyebrow{color:var(--mist)}
+.sh h1{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);margin:0 0 6px}
+.sh .y{background:var(--taupe);padding:clamp(32px,5vw,56px) clamp(20px,4vw,40px);display:flex;flex-direction:column;justify-content:flex-end}
+.sh .y .eyebrow{color:#5c4f43}
+@media (max-width:700px){.sh{grid-template-columns:1fr}}
+.where{padding:44px 0 10px}
+.where h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.prog{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin:18px 0 8px}
+.prog i{height:8px;background:var(--line)}
+.prog i.done{background:var(--slate)}.prog i.now{background:var(--taupe)}
+.stop.done{opacity:.55}
+.stop.now .chip{outline:3px solid var(--taupe);outline-offset:3px}
+.stop .date{font-weight:800;color:var(--deep)}
+.here{display:inline-block;background:var(--taupe);color:var(--deep);font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-left:8px;vertical-align:2px}
+.calw{background:#fff;border:1px solid var(--line);padding:20px;max-width:440px}
+.calw .g{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center;font-size:.9rem}
+.calw .g b{font-size:.72rem;color:var(--muted)}
+.calw .g span{padding:9px 0;background:var(--page)}
+.calw .g span.out{background:transparent;color:var(--muted);font-weight:400}
+.calw .g span.k{font-weight:800}
+.calw .g span.today{outline:2px solid var(--deep);outline-offset:-2px}
+.sh .x .eyebrow,#city{color:#fff!important}.sh .y .eyebrow{color:#3f3730}
+.stop.done{opacity:1}.stop.done h3,.stop.done .real,.stop.done .hint,.stop.done .when{color:var(--muted)}.stop.done .chip{filter:saturate(.4)}
+</style>
+</head>
+<body>
+
+<div class="mini noprint"><div class="wrap"><span class="brand"><span class="mark">M</span>My TC Club</span><button class="btn btn-line btn-sm" onclick="print()">Print my sheet</button></div></div>
+
+<header class="sh">
+  <div class="x"><span class="eyebrow">Your escrow at a glance</span><h1 id="addr"></h1><div id="city" style="font-size:1.15rem;color:#e1ebe8"></div></div>
+  <div class="y"><span class="eyebrow">Purchase price</span><div class="bignum" id="price" style="font-size:clamp(2.4rem,5vw,3.6rem)"></div></div>
+</header>
+<div class="band"><div class="wrap"><span>Accepted <b id="acc"></b></span><span>Close of escrow <b id="coe"></b></span><span>Escrow <b id="esc"></b></span></div></div>
+
+<main class="wrap">
+  <div class="where">
+    <span class="eyebrow">Where you are</span>
+    <h2 id="hi"></h2>
+    <div class="prog" id="prog"></div>
+  </div>
+
+  <div class="split flip" style="padding:20px 0 60px">
+    <div class="road" id="road" style="margin-top:20px"></div>
+    <div>
+      <h3>Calendar</h3>
+      <div class="calw"><div class="g" id="cal"></div></div>
+      <p class="hint" style="max-width:440px">Colored days match the key dates. Weekends and holidays can shift a deadline, so your agent will confirm.</p>
+      <div class="tile" style="background:#fff;border-left:4px solid var(--taupe);margin-top:28px;max-width:440px">
+        <b style="color:var(--deep)">Protect your money.</b> If an email ever sends new wiring instructions, stop and call escrow at a number you already know. Escrow doesn't change wiring instructions by email.
+      </div>
+      <p style="margin-top:22px"><a href="escrow-explained.html">Escrow explained, start to finish &rarr;</a></p>
+    </div>
+  </div>
+
+  <h3>Your team</h3>
+  <div class="tiles" id="team" style="padding-bottom:30px"></div>
+  <p class="hint" style="padding-bottom:60px">Questions? Start with your agent. <span class="sig" style="float:right">Prepared by My TC Club</span></p>
+</main>
+
+<script src="assets/files.js"></script>
+<script>
+(function(){
+var MON=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+var PLAIN={
+  c1:['Everyone said yes.','Both sides signed the purchase agreement. Every deadline is counted from this date.'],
+  c2:['You put money down to show you mean it.','Your earnest money deposit goes to escrow, the neutral company holding the money until closing.'],
+  c3:['The seller tells you everything they know about the house.','You receive the seller’s required disclosures, like the Transfer Disclosure Statement and Natural Hazard report, and sign that you got them.'],
+  c4:['You check the house, the price, and the loan.','Inspections, appraisal, and loan approval. After this date, backing out usually puts your deposit at risk.'],
+  c5:['One last look.','Your final walk-through, to confirm the house is as agreed. It is not a second inspection.'],
+  c6:['It’s yours.','The sale records with the county, and keys are released. Your agent confirms the time.']
+};
+var qs=new URLSearchParams(location.search);
+var F=FILES.find(function(f){ return f.id===qs.get('f'); })||FILES[0];
+var TODAY=qs.get('today')||DEMO_TODAY;
+function D(s){ var p=s.split('-'); return new Date(+p[0],p[1]-1,+p[2]); }
+function iso(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function nice(s){ return D(s).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'}); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+function $(id){ return document.getElementById(id); }
+var CV={c1:'var(--slate)',c2:'var(--taupe)',c3:'var(--aqua)',c4:'var(--sea)',c5:'var(--mist)',c6:'var(--deep)'};
+
+$('addr').textContent=F.address; $('city').textContent=F.city; $('price').textContent='$'+F.price.toLocaleString();
+$('acc').textContent=nice(F.accepted); $('coe').textContent=nice(F.coe); $('esc').textContent=F.escrowCo;
+document.title=F.address+' · Your Escrow';
+var t=D(TODAY), dn=Math.round((t-D(F.accepted))/864e5), tot=Math.round((D(F.coe)-D(F.accepted))/864e5);
+var nowIdx=F.dates.findIndex(function(x){ return D(x.d)>=t; }); if(nowIdx<0) nowIdx=F.dates.length;
+$('hi').textContent = nowIdx>=F.dates.length ? 'Congratulations, '+F.client+'. It’s yours.' : 'Hi '+F.client+'. Day '+dn+' of '+tot+'.';
+$('prog').innerHTML=F.dates.map(function(x,k){ return '<i class="'+(k<nowIdx?'done':k===nowIdx?'now':'')+'"></i>'; }).join('');
+$('road').innerHTML=F.dates.map(function(x,k){
+  var d=D(x.d), p=PLAIN[x.c];
+  return '<div class="stop '+(k<nowIdx?'done':k===nowIdx?'now':'')+'"><span class="chip '+x.c+'"><small>'+MON[d.getMonth()]+'</small><b>'+d.getDate()+'</b></span><div><div class="when"><span class="date">'+nice(x.d)+'</span> · '+esc(x.t)+(k===nowIdx?'<span class="here">Next up</span>':'')+'</div><h3>'+esc(p[0])+'</h3><p class="real" style="margin-bottom:6px">'+esc(p[1])+'</p><p class="hint" style="margin:0">'+esc(x.n)+'</p></div></div>';
+}).join('');
+var key={}; F.dates.forEach(function(x){ key[x.d]=x.c; });
+var a=D(F.accepted), s=new Date(a); s.setDate(a.getDate()-a.getDay());
+var e=D(F.coe); e.setDate(e.getDate()+(6-e.getDay()));
+var h=['S','M','T','W','T','F','S'].map(function(l){return '<b>'+l+'</b>';}).join('');
+for(var d=new Date(s); d<=e; d.setDate(d.getDate()+1)){ var k=iso(d), inR=d>=a&&d<=D(F.coe), c=key[k];
+  h+='<span class="'+(c?'k ':'')+(inR?'':'out ')+(k===TODAY?'today':'')+'"'+(c?' style="background:'+CV[c]+';color:'+(c==='c1'||c==='c6'?'#fff':'var(--deep)')+'"':'')+'>'+d.getDate()+'</span>'; }
+$('cal').innerHTML=h;
+var team=[{role:'Your agent',name:AGENT.name,co:AGENT.brokerage,email:'',tone:'mist'}].concat(F.team).concat([{role:'Transaction coordinator',name:'Allison, My TC Club',co:'',email:'allison@mytcclub.com',tone:'white'}]);
+$('team').innerHTML=team.map(function(p){ return '<div class="tile '+p.tone+'"><span class="eyebrow">'+esc(p.role)+'</span><h3 style="font-size:1.1rem">'+esc(p.name)+'</h3><p>'+esc(p.co)+(p.email?(p.co?'<br>':'')+'<a href="mailto:'+esc(p.email)+'">'+esc(p.email)+'</a>':'')+'</p></div>'; }).join('');
+})();
+</script>
+</body>
+</html>

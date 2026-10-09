@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex,nofollow">
+<title>Your Files · My TC Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=Courier+Prime:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.top{padding:40px 0 24px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.top h1{font-size:clamp(2rem,4.4vw,2.8rem);margin:0}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:#fff;margin-bottom:28px}
+.kpis div{padding:18px 22px;border-left:1px solid var(--line)}
+.kpis div:first-child{border-left:0}
+.kpis b{display:block;font:800 1.9rem/1 "Bricolage Grotesque";color:var(--deep);margin-bottom:6px}
+.kpis span{font-size:.86rem;color:var(--muted)}
+@media (max-width:640px){.kpis{grid-template-columns:1fr}.kpis div{border-left:0;border-top:1px solid var(--line)}.kpis div:first-child{border-top:0}}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:12px 4px;margin-right:18px;font:700 1rem "Manrope";color:var(--muted);cursor:pointer}
+.tabs button.on{color:var(--deep);border-color:var(--slate)}
+.app{display:grid;grid-template-columns:330px minmax(0,1fr);gap:28px;padding-bottom:80px;align-items:start}
+@media (max-width:900px){.app{grid-template-columns:minmax(0,1fr)}}
+.flist{background:#fff;border:1px solid var(--line)}
+.fitem{display:grid;grid-template-columns:46px 1fr;gap:14px;padding:16px;border:0;border-bottom:1px solid var(--line);cursor:pointer;width:100%;background:none;border-left:3px solid transparent;text-align:left;font:inherit;color:inherit}
+.fitem:last-child{border-bottom:0}
+.fitem.on{background:var(--page);border-left-color:var(--slate)}
+.fitem .chip{width:46px;height:46px}.fitem .chip small{font-size:.56rem}.fitem .chip b{font-size:1.1rem}
+.fitem b.a{display:block;color:var(--deep)}
+.fitem b.a + span{font-size:.86rem;color:var(--muted)}
+.newfile{padding:16px;font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);background:var(--page)}
+.detail{background:#fff;border:1px solid var(--line)}
+.dh{display:grid;grid-template-columns:minmax(0,1fr) auto;background:var(--slate);color:#fff}
+.dh .x{padding:24px 26px}
+.dh .x .eyebrow{color:var(--mist);margin-bottom:.5em}
+.dh h2{color:#fff;font-size:1.9rem;margin:0}
+.dh .y{background:var(--taupe);color:var(--deep);padding:24px 26px;display:flex;align-items:flex-end;font:800 1.7rem/1 "Bricolage Grotesque"}
+.dband{background:var(--sea);color:var(--deep);padding:10px 26px;font-size:.88rem;display:flex;flex-wrap:wrap;gap:6px 26px}
+.dbody{padding:26px}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+@media (max-width:1100px){.dgrid{grid-template-columns:1fr}}
+.dbody h3{font-size:1.15rem;margin:0 0 14px}
+.kd{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.kd .chip{width:46px;height:46px}.kd .chip small{font-size:.56rem}.kd .chip b{font-size:1.1rem}
+.kd.past{opacity:.5}
+.kd>div b{display:block;color:var(--deep);font-size:.95rem}
+.kd>div span{font-size:.84rem;color:var(--muted)}
+.doc{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.doc .ic{flex:none;width:28px;height:34px;border:1.5px solid var(--sea);border-radius:2px;display:grid;place-items:center;font-size:.55rem;font-weight:800;color:var(--slate)}
+.doc .st{margin-left:auto;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:2px;white-space:nowrap}
+.st.done{background:var(--mist);color:var(--deep)}.st.waiting{background:var(--sand);color:#5c4f43}.st.later{background:var(--page);color:var(--muted)}
+.doc a{font-weight:700;font-size:.85rem}
+.switches{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+@media (max-width:700px){.switches{grid-template-columns:1fr}}
+.sw{border:1px solid var(--line);padding:18px 20px;border-radius:var(--r)}
+.sw .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sw b{color:var(--deep)}
+.sw p{margin:8px 0 0;font-size:.88rem;color:var(--muted)}
+.tg{position:relative;width:46px;height:26px;flex:none;background:var(--line);border-radius:13px;border:0;cursor:pointer;transition:background .2s}
+.tg:after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.tg[aria-checked=true]{background:var(--slate)}
+.tg[aria-checked=true]:after{left:23px}
+.linkbox{display:none;margin-top:12px;gap:8px}
+.sw.on .linkbox{display:flex}
+.linkbox input{font-size:.82rem;padding:9px 10px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.team .tile{padding:16px 18px}
+.team .tile h4{margin:0 0 2px;font-size:1rem}
+.team .tile p{font-size:.85rem}
+@media (max-width:900px){.team{grid-template-columns:1fr}}
+/* calendar view */
+.cal{background:#fff;border:1px solid var(--line);padding:22px}
+.cal .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cal .hd h3{margin:0}
+.cal .hd button{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:6px 12px;cursor:pointer;font:inherit}
+.cal .g{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal .g .dw{font-size:.72rem;font-weight:800;letter-spacing:.1em;color:var(--muted);text-align:center;padding:6px 0}
+.cal .g .d{min-height:96px;background:var(--page);padding:6px;font-size:.8rem}
+.cal .g .d.out{background:transparent;color:#b9c4c1}
+.cal .g .d.today{outline:2px solid var(--deep);outline-offset:-2px}
+.cal .ev{display:block;margin-top:4px;padding:3px 5px;border-radius:2px;font-size:.7rem;line-height:1.25;font-weight:700;cursor:pointer}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;font-size:.85rem}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+@media (max-width:700px){.cal .g .d{min-height:64px;padding:3px}.cal .ev{font-size:0;height:6px;padding:0}}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pcard{background:#fff;border:1px solid var(--line);padding:20px 22px}
+.pcard.wide{grid-column:1/-1}
+.pcard h3{font-size:1.1rem;margin:0 0 12px}
+.kv{display:grid;grid-template-columns:42% 1fr;gap:6px 12px;margin:0;font-size:.93rem}
+.kv dt{color:var(--muted);font-weight:600}.kv dd{margin:0;color:var(--deep)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.nums b{display:block;font:800 2rem/1 "Bricolage Grotesque";color:var(--deep)}
+.nums span{font-size:.85rem;color:var(--muted)}
+.people{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.people .tile{padding:14px 16px}.people h4{margin:0 0 2px;font-size:1rem}.people p{font-size:.85rem;margin:0}
+@media (max-width:900px){.pgrid{grid-template-columns:minmax(0,1fr)}.people{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.people{grid-template-columns:minmax(0,1fr)}}
+.cal .hd{flex-wrap:wrap;gap:12px}
+.cal .hd .hl{display:flex;align-items:center;gap:14px}
+.calpick{display:flex;align-items:center;gap:8px;margin:0;font-size:.85rem}
+.calpick select{width:auto;padding:8px 10px;font-size:.9rem}
+.cal .ev em{display:block;font-style:normal;font-weight:800;font-size:.62rem;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
+.legend .lg{background:none;border:1px solid transparent;border-radius:999px;padding:4px 10px;font:inherit;cursor:pointer;color:inherit}
+.legend .lg:hover,.legend .lg.on{border-color:var(--slate)}
+@media (max-width:640px){.kpis{grid-template-columns:repeat(3,1fr)}.kpis div{padding:12px;border-top:0!important;border-left:1px solid var(--line)}.kpis div:first-child{border-left:0}.kpis b{font-size:1.4rem}}
+.dh .x .eyebrow,.dh .x div{color:#fff!important}
+.kd.past{opacity:1}.kd.past>div b,.kd.past>div span{color:var(--muted)}.kd.past .chip{filter:saturate(.4)}
+</style>
+</head>
+<body>
+<div class="demo-bar noprint"><div class="wrap"><b>Sample portal.</b> Fictional agent and files, so you can see how it works. Your real portal shows your files.</div></div>
+
+<main class="wrap">
+  <div class="top">
+    <div><span class="eyebrow" id="brk"></span><h1 id="hello"></h1></div>
+    <a class="btn btn-line btn-sm" href="mailto:allison@mytcclub.com?subject=New%20file">New file? Email the contract</a>
+  </div>
+  <div class="kpis" id="kpis"></div>
+  <div class="tabs"><button class="on" data-v="files">Files</button><button data-v="cal">Calendar</button><button data-v="me">Your profile</button></div>
+  <div id="vFiles" class="app">
+    <div class="flist" id="flist"></div>
+    <div class="detail" id="detail"></div>
+  </div>
+  <div id="vCal" style="display:none;padding-bottom:80px"><div class="cal" id="cal"></div></div>
+  <div id="vMe" style="display:none;padding-bottom:60px"></div>
+</main>
+
+<script src="assets/files.js"></script>
+<script src="assets/config.js"></script><script src="assets/chrome.js"></script>
+<script>
+(function(){
+var MON=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+var TODAY = DEMO_TODAY;
+function D(s){ var p=s.split('-'); return new Date(+p[0],p[1]-1,+p[2]); }
+function iso(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function nice(s){ return D(s).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+function $(id){ return document.getElementById(id); }
+function next(f){ return f.dates.find(function(x){ return D(x.d)>=D(TODAY); }); }
+function days(s){ return Math.round((D(s)-D(TODAY))/864e5); }
+function when(s){ var n=days(s); return n===0?'today':n===1?'tomorrow':'in '+n+' days'; }
+var FC=['var(--slate)','var(--taupe)','var(--sea)'];
+var state={}; try{ state=JSON.parse(localStorage.getItem('mtc-portal')||'{}'); }catch(e){}
+function save(){ try{ localStorage.setItem('mtc-portal',JSON.stringify(state)); }catch(e){} }
+
+$('brk').textContent = AGENT.name+' · '+AGENT.brokerage;
+var hr = new Date().getHours();
+$('hello').textContent = (hr<12?'Good morning':hr<17?'Good afternoon':'Good evening')+', '+AGENT.first+'.';
+var thisWeek = FILES.filter(function(f){ var n=days(f.coe); return n>=0&&n<=7; }).length;
+var soonest = FILES.map(next).filter(Boolean).sort(function(a,b){ return D(a.d)-D(b.d); })[0];
+$('kpis').innerHTML = '<div><b>'+FILES.length+'</b><span>Open files</span></div><div><b>'+thisWeek+'</b><span>Closing this week</span></div><div><b>'+(soonest?nice(soonest.d):'None')+'</b><span>Next deadline'+(soonest?': '+esc(soonest.t):'')+'</span></div>';
+
+var cur = FILES[0].id;
+function list(){
+  $('flist').innerHTML = FILES.map(function(f){
+    var n=next(f), d=D(n?n.d:f.coe);
+    return '<button class="fitem'+(f.id===cur?' on':'')+'" data-id="'+f.id+'"><span class="chip '+(n?n.c:'c6')+'"><small>'+MON[d.getMonth()]+'</small><b>'+d.getDate()+'</b></span><span><b class="a">'+esc(f.address)+'</b><span>'+esc(f.side)+' · '+(n?esc(n.t)+' '+when(n.d):'Closed')+'</span></span></button>';
+  }).join('') + '<div class="newfile">New file? Email the accepted contract to <a href="mailto:allison@mytcclub.com">allison@mytcclub.com</a>. It shows up here once it’s open.</div>';
+  $('flist').querySelectorAll('.fitem').forEach(function(b){ b.onclick=function(){ cur=b.dataset.id; list(); detail(); if(innerWidth<900) $('detail').scrollIntoView({behavior:'smooth'}); }; });
+}
+function detail(){
+  var f = FILES.find(function(x){ return x.id===cur; }), st = state[f.id]||{};
+  var h = '<div class="dh"><div class="x"><span class="eyebrow">'+esc(f.side)+' side · '+esc(f.status)+'</span><h2>'+esc(f.address)+'</h2><div style="color:#e1ebe8">'+esc(f.city)+'</div></div><div class="y">$'+f.price.toLocaleString()+'</div></div>';
+  h += '<div class="dband"><span>Accepted <b>'+nice(f.accepted)+'</b></span><span>Close of escrow <b>'+nice(f.coe)+'</b></span><span>Escrow <b>'+esc(f.escrowCo)+'</b> #'+esc(f.escrowNo)+'</span></div>';
+  h += '<div class="dbody"><div class="dgrid"><div><h3>Key dates</h3>'+f.dates.map(function(x){
+    var d=D(x.d); return '<div class="kd'+(d<D(TODAY)?' past':'')+'"><span class="chip '+x.c+'"><small>'+MON[d.getMonth()]+'</small><b>'+d.getDate()+'</b></span><div><b>'+esc(x.t)+'</b><span>'+esc(x.n)+'</span></div></div>';
+  }).join('')+'</div><div><h3>Documents</h3>'+f.docs.map(function(x){
+    var lab = x.s==='done'?'Done':x.s==='waiting'?'Waiting on '+x.who:'Later';
+    return '<div class="doc"><span class="ic">PDF</span><span>'+esc(x.t)+(x.s==='done'?' <a href="#" onclick="return false">View</a>':'')+'</span><span class="st '+x.s+'">'+esc(lab)+'</span></div>';
+  }).join('')+'</div></div>';
+  var link = location.href.replace(/portal\.html.*$/,'')+'file.html?f='+f.id;
+  var revOn = st.reviews !== false;
+  h += '<div class="switches">'+
+    '<div class="sw on"><div class="row"><b>Client page for '+esc(f.client)+'</b></div><p>'+(st.sent?'Sent to '+esc(f.client)+'.':'I emailed you this page to approve. Forward it yourself, or tell me to send it.')+'</p><div class="linkbox"><a class="btn btn-line btn-sm" href="'+esc(link)+'" target="_blank">Preview</a>'+(st.sent?'':'<button class="btn btn-dark btn-sm" data-send>Send it for me</button>')+'</div></div>'+
+    '<div class="sw'+(revOn?' on':'')+'"><div class="row"><b>Review request</b><button class="tg" role="switch" aria-checked="'+revOn+'" data-k="reviews" aria-label="Review request"></button></div><p>'+(revOn?'On our closing checklist: after close, I ask '+esc(f.client)+' for a review on your behalf.':'Off. You have your own system, so I\u2019ll skip it.')+'</p></div>'+
+  '</div>';
+  h += '<div class="team">'+f.team.map(function(p){ return '<div class="tile '+p.tone+'"><span class="eyebrow">'+esc(p.role)+'</span><h4>'+esc(p.name)+'</h4><p>'+esc(p.co)+'<br><a href="mailto:'+esc(p.email)+'">'+esc(p.email)+'</a></p></div>'; }).join('')+'</div></div>';
+  $('detail').innerHTML = h;
+  $('detail').querySelectorAll('.tg').forEach(function(t){ t.onclick=function(){ state[f.id]=state[f.id]||{}; state[f.id].reviews = (state[f.id].reviews===false); save(); detail(); }; });
+  var sd=$('detail').querySelector('[data-send]'); if(sd) sd.onclick=function(){ state[f.id]=state[f.id]||{}; state[f.id].sent=true; save(); detail(); };
+}
+
+var calMonth = D(TODAY); calMonth.setDate(1);
+var calFile = 'all';
+function short(addr){ return addr.split(' ').slice(0,3).join(' '); }
+function cal(){
+  var y=calMonth.getFullYear(), m=calMonth.getMonth();
+  var start=new Date(y,m,1); start.setDate(1-start.getDay());
+  var ev={}; FILES.forEach(function(f,fi){ if(calFile!=='all' && f.id!==calFile) return; f.dates.forEach(function(x){ (ev[x.d]=ev[x.d]||[]).push({f:f,fi:fi,x:x}); }); });
+  var pick = FILES.length > 1 ? '<label class="calpick"><span>Show</span><select id="calFile"><option value="all">All properties</option>'+FILES.map(function(f){ return '<option value="'+f.id+'"'+(calFile===f.id?' selected':'')+'>'+esc(f.address)+'</option>'; }).join('')+'</select></label>' : '';
+  var h='<div class="hd"><div class="hl"><button data-m="-1" aria-label="Previous month">&larr;</button><h3>'+calMonth.toLocaleDateString('en-US',{month:'long',year:'numeric'})+'</h3><button data-m="1" aria-label="Next month">&rarr;</button></div>'+pick+'</div><div class="g">'+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(function(d){return '<div class="dw">'+d+'</div>';}).join('');
+  for(var k=0;k<42;k++){ var d=new Date(start); d.setDate(start.getDate()+k); var s=iso(d);
+    h+='<div class="d'+(d.getMonth()!==m?' out':'')+(s===TODAY?' today':'')+'">'+d.getDate()+(ev[s]||[]).map(function(e){ return '<span class="ev" role="button" tabindex="0" data-id="'+e.f.id+'" style="background:'+FC[e.fi]+';color:'+(e.fi===0?'#fff':'var(--deep)')+'" title="'+esc(e.f.address+', '+e.f.city+': '+e.x.t)+'">'+(calFile==='all'?'<em>'+esc(short(e.f.address))+'</em>':'')+esc(e.x.t)+'</span>'; }).join('')+'</div>'; }
+  h+='</div><div class="legend">'+FILES.map(function(f,fi){ return '<button class="lg'+(calFile===f.id?' on':'')+'" data-f="'+f.id+'"><i style="background:'+FC[fi]+'"></i>'+esc(f.address)+'</button>'; }).join('')+'</div>';
+  $('cal').innerHTML=h;
+  $('cal').querySelectorAll('[data-m]').forEach(function(b){ b.onclick=function(){ calMonth.setMonth(calMonth.getMonth()+(+b.dataset.m)); cal(); }; });
+  $('cal').querySelectorAll('.ev').forEach(function(e){ e.onclick=function(){ cur=e.dataset.id; tab('files'); }; e.onkeydown=function(k){ if(k.key==='Enter'||k.key===' '){ k.preventDefault(); e.click(); } }; });
+  var sel=$('calFile'); if(sel) sel.onchange=function(){ calFile=sel.value; cal(); };
+  $('cal').querySelectorAll('.lg').forEach(function(b){ b.onclick=function(){ calFile = calFile===b.dataset.f ? 'all' : b.dataset.f; cal(); }; });
+}
+function me(){
+  var A = AGENT, M = window.MTC;
+  var closed = FILES.filter(function(f){ return D(f.coe) < D(TODAY); }).length;
+  function blank(v){ return v ? esc(v) : '<span class="muted">Not on file yet</span>'; }
+  var h = '<div class="pgrid">';
+  h += '<div class="pcard"><h3>Your numbers with us</h3><div class="nums">'+
+    '<div><b>'+FILES.length+'</b><span>files sent</span></div><div><b>'+closed+'</b><span>closed</span></div><div><b>'+FILES.filter(function(f){return D(f.coe)>=D(TODAY);}).length+'</b><span>open now</span></div></div>'+
+    '<p class="hint" style="margin:10px 0 0">Counting since you joined on '+nice(A.joined)+'.</p></div>';
+  h += '<div class="pcard"><h3>You</h3><dl class="kv">'+
+    [['Name',A.name],['Brokerage',A.brokerage],['Mobile',A.phone],['Email',A.email],['DRE #',A.dre]].map(function(r){ return '<dt>'+r[0]+'</dt><dd>'+blank(r[1])+'</dd>'; }).join('')+'</dl></div>';
+  h += '<div class="pcard"><h3>How you like it done</h3><dl class="kv">'+A.prefs.map(function(r){ return '<dt>'+esc(r[0])+'</dt><dd>'+blank(r[1])+'</dd>'; }).join('')+'</dl></div>';
+  h += '<div class="pcard"><h3>System access</h3>'+A.access.map(function(r){ return '<div class="doc"><span>'+esc(r[0])+'</span><span class="st '+r[2]+'">'+esc(r[1])+'</span></div>'; }).join('')+
+    '<p class="hint" style="margin:10px 0 0">No passwords are stored here. Ever.</p></div>';
+  h += '<div class="pcard wide"><h3>Your team</h3><div class="people">'+A.team.map(function(p){ return '<div class="tile mist"><span class="eyebrow">'+esc(p.role)+'</span><h4>'+esc(p.name)+'</h4><p>'+esc(p.phone)+'<br><a href="mailto:'+esc(p.email)+'">'+esc(p.email)+'</a>'+(p.note?'<br><i>'+esc(p.note)+'</i>':'')+'</p></div>'; }).join('')+'</div></div>';
+  h += '<div class="pcard wide"><h3>Your go-to vendors</h3><div class="people">'+A.vendors.map(function(p){ return '<div class="tile sand"><span class="eyebrow">'+esc(p.role)+'</span>'+(p.name?'<h4>'+esc(p.name)+'</h4><p>'+esc(p.co)+'<br>'+esc(p.phone)+'</p>':'<p class="muted">Not on file yet</p>')+'</div>'; }).join('')+'</div></div>';
+  h += '</div><p class="hint" style="margin-top:18px">Something changed? <a href="sms:'+M.phoneRaw+'">Text me</a> and I\u2019ll update it.</p>';
+  $('vMe').innerHTML = h;
+}
+function tab(v){
+  document.querySelectorAll('.tabs button').forEach(function(b){ b.classList.toggle('on',b.dataset.v===v); });
+  $('vFiles').style.display = v==='files'?'':'none'; $('vCal').style.display = v==='cal'?'':'none'; $('vMe').style.display = v==='me'?'':'none';
+  if(v==='me') me();
+  if(v==='cal') cal(); else { list(); detail(); }
+}
+document.querySelectorAll('.tabs button').forEach(function(b){ b.onclick=function(){ tab(b.dataset.v); }; });
+tab('files');
+})();
+</script>
+</body>
+</html>

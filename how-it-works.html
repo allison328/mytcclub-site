@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow" data-demo="remove-at-launch">
+<title>How Transaction Coordination Works, Contract to Close | My TC Club</title>
+<meta name="description" content="What a California transaction coordinator does at every step of escrow, from opening the file to close, and what the agent still does. Usually almost nothing.">
+<link rel="canonical" href="https://www.mytcclub.com/how-it-works.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#51706a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="My TC Club">
+<meta property="og:title" content="How Transaction Coordination Works, Contract to Close | My TC Club">
+<meta property="og:description" content="What a California transaction coordinator does at every step of escrow, from opening the file to close, and what the agent still does. Usually almost nothing.">
+<meta property="og:url" content="https://www.mytcclub.com/how-it-works.html">
+<meta property="og:image" content="https://www.mytcclub.com/assets/og-image.jpg">
+<meta property="og:image:alt" content="My TC Club, transaction coordination for California real estate agents">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="geo.region" content="US-CA">
+<meta name="geo.placename" content="Visalia, California">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=Courier+Prime:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.phase{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--line);background:#fff}
+.phase button{background:none;border:0;border-left:1px solid var(--line);padding:12px 14px;text-align:left;cursor:pointer;font:inherit;color:var(--muted)}
+.phase button:first-child{border-left:0}
+.phase button small{display:block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.phase button b{font:800 1.05rem/1.2 "Bricolage Grotesque";color:var(--deep)}
+.phase button.on{background:var(--deep);color:#c9d8d4}
+.phase button.on b{color:#fff}
+@media (max-width:860px){.phase{display:flex;overflow-x:auto;scrollbar-width:none}.phase::-webkit-scrollbar{display:none}.phase button{flex:none;min-width:140px}}
+.pane{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:0;border:1px solid var(--line);border-top:0;background:#fff}
+.pane>div{padding:clamp(16px,2.2vw,26px)}
+.pane .me{background:var(--mist)}
+.pane h2{font-size:clamp(1.25rem,2vw,1.6rem);margin-bottom:.35em}
+.pane .eyebrow{margin-bottom:.6em}
+.pane .muted{font-size:.95rem}
+.pane ul{margin:0;padding-left:18px}
+.pane li{margin:3px 0;font-size:.93rem;line-height:1.45}
+.pane .you li{color:var(--deep);font-weight:600}
+@media (max-width:860px){.pane{grid-template-columns:1fr}}
+.pn{display:flex;gap:8px;margin-top:18px}
+.pane .me .eyebrow{color:var(--deep)}
+</style>
+<script type="application/ld+json">{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mytcclub.com/"}, {"@type": "ListItem", "position": 2, "name": "How Transaction Coordination Works, Contract to Close", "item": "https://www.mytcclub.com/how-it-works.html"}], "@context": "https://schema.org"}</script>
+</head>
+<body>
+
+<div class="phero" style="padding-top:44px;padding-bottom:24px"><div class="wrap">
+  <span class="eyebrow">How it works</span>
+  <h1 style="font-size:clamp(2rem,3.6vw,3rem)">One road, from signed contract to keys.</h1>
+  <p class="lead">What I do at each stop, and what you do. Most of the time your column is nearly empty. That's the point.</p>
+</div></div>
+
+<section style="padding-top:24px">
+  <div class="wrap">
+    <div class="phase" id="phase"></div>
+    <div class="pane" id="pane"></div>
+    <p class="hint" style="margin-top:22px">Timing follows a typical 30-day California purchase. Your portal shows the real dates from your contract.</p>
+  </div>
+</section>
+
+<section class="s-white">
+  <div class="wrap split">
+    <div><span class="eyebrow">Getting into your systems</span><h2>We snap into what you already use.</h2></div>
+    <div>
+      <p class="lead" style="color:var(--ink)">Most files run through zipForm on C.A.R., your broker's compliance system (usually SkySlope), and DocuSign. You don't change a thing about how you work.</p>
+      <p class="muted">Where a platform lets you add a transaction coordinator, we do it that way. Use a password manager like 1Password? Share access with us there. Anything else, we follow up with you securely. We never ask for passwords by email or text, and never for your MLS login.</p>
+      <a class="btn btn-dark arrow" href="signup.html" style="margin-top:8px">Sign up in 2 minutes</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/config.js"></script><script src="assets/chrome.js"></script>
+<script>
+(function(){
+  var P = [
+    { s:'Once', t:'Sign up', h:'Two minutes, once.', p:'Your details, your brokerage, and how we get into the systems your files live in.',
+      me:['Set up your agent profile','Get access to your forms and compliance systems the right way'], you:['Fill in the form, or text me'] },
+    { s:'Day 1', t:'Opening', h:'Send the accepted contract.', p:'Email it or text it. That is the whole hand-off.',
+      me:['Review the contract: price, deposit, every contingency','Count every deadline from acceptance','Flag missing initials, blanks, and wrong dates','Send opening emails to escrow, the lender, and the other agent','Build your Escrow at a Glance sheet','Put the file in your portal'], you:['Send one email or text','Fix anything I flag'] },
+    { s:'Week 1', t:'Disclosures', h:'Paperwork goes out.', p:'On listings, I assemble the seller disclosures and send them. When they come back, I read every line.',
+      me:['Assemble and send seller and state disclosures','Check every question was answered','Chase the seller for an explanation on every yes'], you:['Nothing'] },
+    { s:'Weeks 2 to 3', t:'Contingencies', h:'Inspections, appraisal, loan.', p:'The buyer checks the house, the price, and the money. I keep every date from slipping.',
+      me:['Remind everyone before each deadline','Draw C.A.R. forms for you','Track signatures until every page is done','Answer "where is it" questions from the file'], you:['Negotiate repairs with your client','Tell me what you agreed'] },
+    { s:'Week 4', t:'Closing', h:'The file comes together.', p:'Everything signed, everything uploaded, nothing missing.',
+      me:['Split and name the executed documents','Upload the full file to your compliance system','Put the final walk-through on the calendar'], you:['Walk the house with your client'] },
+    { s:'After', t:'Closed', h:'Done, and filed.', p:'The sale records. The file is complete and filed by address.',
+      me:['Close out the file','Ask your client for a review on your behalf, unless you have your own system'], you:['Hand over the keys'] }
+  ];
+  var i = 0;
+  var ph = document.getElementById('phase');
+  ph.innerHTML = P.map(function(x,k){ return '<button data-k="'+k+'"><small>'+x.s+'</small><b>'+x.t+'</b></button>'; }).join('');
+  function li(a){ return '<ul>'+a.map(function(x){ return '<li>'+x+'</li>'; }).join('')+'</ul>'; }
+  function show(k){
+    i = Math.max(0, Math.min(P.length-1, k)); var x = P[i];
+    ph.querySelectorAll('button').forEach(function(b,n){ b.classList.toggle('on', n===i); });
+    document.getElementById('pane').innerHTML = '<div><span class="eyebrow">'+x.s+'</span><h2>'+x.h+'</h2><p class="muted" style="margin:0">'+x.p+'</p><div class="pn"><button class="btn btn-line btn-sm" id="prev">&larr; Back</button><button class="btn btn-dark btn-sm" id="nxt">Next &rarr;</button></div></div><div class="me"><span class="eyebrow">I do</span>'+li(x.me)+'</div><div class="you"><span class="eyebrow">You do</span>'+li(x.you)+'</div>';
+    var pv=document.getElementById('prev'), nx=document.getElementById('nxt');
+    pv.style.display = i ? '' : 'none'; nx.style.display = i < P.length-1 ? '' : 'none';
+    pv.onclick = function(){ show(i-1); }; nx.onclick = function(){ show(i+1); };
+    var b = ph.children[i]; if(ph.scrollWidth > ph.clientWidth) ph.scrollTo({left:b.offsetLeft-20, behavior:'smooth'});
+  }
+  ph.querySelectorAll('button').forEach(function(b){ b.onclick = function(){ show(+b.dataset.k); }; });
+  show(0);
+})();
+</script>
+</body>
+</html>
