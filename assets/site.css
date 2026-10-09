@@ -306,3 +306,4 @@ h1,h2,h3{text-wrap:balance}
 .tile a{color:var(--deep)}
 .marq span{opacity:1}
 .chip small{color:inherit!important}
+img.photo{padding:0;object-fit:cover;width:100%;height:auto;display:block}
