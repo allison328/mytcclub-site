@@ -68,7 +68,7 @@
         <div style="font-size:1.1rem;margin-top:6px" id="wk"></div>
         <div class="res">
           <div><b id="val"></b><span>your time is worth</span></div>
-          <div><b id="cost"></b><span>at $400 a file</span></div>
+          <div><b id="cost"></b><span>at $500 a file</span></div>
           
           <div><b id="per"></b><span>back per file</span></div>
         </div>
@@ -88,7 +88,7 @@
     $('fo').textContent=f; $('ho').textContent=h+' hrs'; $('vo').textContent='$'+v;
     $('hrs').textContent=t.toLocaleString()+' hours';
     $('wk').textContent='a year. That’s '+(Math.round(t/40*10)/10)+' full 40-hour work weeks.';
-    $('val').textContent=money(t*v); $('cost').textContent=money(f*400); $('per').textContent=h+' hrs';
+    $('val').textContent=money(t*v); $('cost').textContent=money(f*500); $('per').textContent=h+' hrs';
   }
   ['f','h','v'].forEach(function(id){ $(id).oninput=run; }); run();
 })();

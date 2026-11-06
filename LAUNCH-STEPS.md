@@ -23,6 +23,6 @@ moves to a GitHub repo as-is and GitHub Pages serves it. `.nojekyll` and
 ## SEO already in place
 - Unique title and description per page, keyword first ("California transaction coordinator", "real estate admin support", "transaction coordinator pricing", "escrow explained").
 - Canonical URLs on https://www.mytcclub.com, Open Graph and share image (`assets/og-image.jpg`), favicon.
-- Schema.org: ProfessionalService (home), Service with $400 offer (pricing), Person (about), HowTo with 9 steps (escrow), FAQPage with 24 questions (faq), breadcrumbs everywhere.
+- Schema.org: ProfessionalService (home), Service with $500 offer (pricing), Person (about), HowTo with 9 steps (escrow), FAQPage with 24 questions (faq), breadcrumbs everywhere.
 - California page: 58 counties by region, map, and ~90 major cities in crawlable text. No thin city-by-city pages, on purpose: Google treats mass city pages as doorway spam.
 - Images: WebP with JPEG fallback, sized, every image has descriptive alt text.
